@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom';
+import DogList from './DogList';
 import hazel from './images/hazel.jpg';
 import tubby from './images/tubby.jpg';
 import whiskey from './images/whiskey.jpg';
@@ -41,7 +42,9 @@ class App extends Component {
     ]
   };
   render() {
-    return <Route path='/dogs' render={() => <h1>DOG LIST</h1>} />;
+    return (
+      <Route path='/dogs' render={() => <DogList dogs={this.props.dogs} />} />
+    );
   }
 }
 
