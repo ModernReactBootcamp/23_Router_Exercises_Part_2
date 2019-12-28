@@ -6,6 +6,7 @@ import hazel from './images/hazel.jpg';
 import tubby from './images/tubby.jpg';
 import whiskey from './images/whiskey.jpg';
 import './App.css';
+import Navbar from './Navbar';
 
 class App extends Component {
   static defaultProps = {
@@ -51,14 +52,17 @@ class App extends Component {
       return <DogDetails {...props} dog={currentDog} />;
     };
     return (
-      <Switch>
-        <Route
-          exact
-          path='/dogs'
-          render={() => <DogList dogs={this.props.dogs} />}
-        />
-        <Route exact path='/dogs/:name' render={getDog} />
-      </Switch>
+      <div>
+        <Navbar />
+        <Switch>
+          <Route
+            exact
+            path='/dogs'
+            render={() => <DogList dogs={this.props.dogs} />}
+          />
+          <Route exact path='/dogs/:name' render={getDog} />
+        </Switch>
+      </div>
     );
   }
 }
